@@ -26,6 +26,8 @@ This project was completed under the course Embedded Interface Design at Univers
 - sudo apt-get install qt5-default pyqt5-dev-pyqt5-dev-tools
 - sudo apt-get install qttools-dev-tools
 
+The folder consists of two .py files: app.py and test.py. test.py is the gui module which has been imported into app.py.  
+In order to run the application type this command: `python3 app.py` from the source directory.
 
 ## Project Work
 - Siddhant Jajoo - Pyqt5 work and Integration
