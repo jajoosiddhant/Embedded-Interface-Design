@@ -18,7 +18,9 @@ __copyright__ = "Copyright (C) 2019 by Satya Mehta and Siddhant Jajoo"
 class gui_functionality(Ui_MainWindow):
     
     """
-        gui_functionality: an .....
+        gui_functionality: This class consist of all the print functions that would be
+        required to display data on the GUI and to obtain temperature reading from the DHT22 sensor.
+        
     """
     def print_refresh(self):
         """
