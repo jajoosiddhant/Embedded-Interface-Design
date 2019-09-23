@@ -95,7 +95,6 @@ class gui_functionality(Ui_MainWindow):
             new_temp_array = list()
             for i in temp_array:
                 new_temp_array.append((i * 9/5) + 32)
-                print (new_temp_array)
             plt.ylabel('Temperature(Fahreneit)')
             plt.plot(timestamp_array, new_temp_array)
         else:
@@ -170,7 +169,6 @@ class gui_functionality(Ui_MainWindow):
             cur.execute(sql)
             latest_temp = cur.fetchall()
             self.latest_temp_list = np.asarray(latest_temp[0])
-            print (self.latest_temp_list)
         except:
             db.rollback()
 
