@@ -37,5 +37,5 @@ This project was completed under the course Embedded Interface Design at Univers
 
 
 ## References
-https://github.com/adafruit/DHT-sensor-library - Adafruit library for DHT22 sensor.
-https://pimylifeup.com/raspberry-pi-humidity-sensor-dht22/ - Adafruit Sensor Installation
+- https://github.com/adafruit/DHT-sensor-library - Adafruit library for DHT22 sensor.
+- https://pimylifeup.com/raspberry-pi-humidity-sensor-dht22/ - Adafruit Sensor Installation
