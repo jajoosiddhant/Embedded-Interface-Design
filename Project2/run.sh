@@ -2,5 +2,5 @@
 
 cd `dirname $0`
 python3 app.py &
-node Project2_nodejs_server.js
+node nodejs_server.js
 
