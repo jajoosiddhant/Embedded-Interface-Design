@@ -1,4 +1,6 @@
 #!/bin/bash
-python /home/pi/Desktop/Projects/Project-2/app.py
-python /home/pi/Desktop/Projects/Project-2/tornado_test.py
+
+cd `dirname $0`
+python3 app.py &
+node Project2_nodejs_server.js
 

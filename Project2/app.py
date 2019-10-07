@@ -216,15 +216,17 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         temp_dict = dict()
         final_list = list()
         
-        if temperature is None and humidity is None:
-            final_list = [{"temperature":"Offline","humidity":"Offline", "timestamp":str(datetime.datetime.now())}]
-            json_string = json.dumps(final_list)
-            self.write_message(json_string)
+        
             
         if message == 'Refresh':
-            final_list = [{"temperature":round(temperature,3), "humidity":humidity, "timestamp":str(datetime.datetime.now())}]
-            json_string = json.dumps(final_list)
-            self.write_message(json_string)
+            if temperature is None and humidity is None:
+                final_list = [{"temperature":"Offline","humidity":"Offline", "timestamp":str(datetime.datetime.now())}]
+                json_string = json.dumps(final_list)
+                self.write_message(json_string)
+            else:
+                final_list = [{"temperature":round(temperature,3), "humidity":round(humidity,3), "timestamp":str(datetime.datetime.now())}]
+                json_string = json.dumps(final_list)
+                self.write_message(json_string)
         
 
             
