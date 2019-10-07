@@ -1,8 +1,8 @@
-# EID-Project-1
+# EID-Project-2
   
 This project was completed under the course Embedded Interface Design at University of Colorado, Boulder under the guidance of Professor Bruce Montgomery in September 2019.
   
-## Authors: Siddhant Jajoo and Satya Mehta  
+## Authors: Siddhant Jajoo, Satya Mehta, Vatsal Sheth  
 
 ## Installation Instructions 
  Run below commands to install all the libraries and dependancies to required for this project. 
@@ -26,12 +26,31 @@ This project was completed under the course Embedded Interface Design at Univers
 - sudo apt-get install qt5-default pyqt5-dev-pyqt5-dev-tools
 - sudo apt-get install qttools-dev-tools
 
-Craete a database named exampledb before running the python code.
-The folder consists of two .py files: app.py and test.py. test.py is the gui module which has been imported into app.py.  
-In order to run the application type this command: `python3 app.py` from the source directory.
+***Tornado Installation***
+- sudo pip install tornado
+
+***NodeJS Installation***
+- curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+- restart your terminal
+- nvm -version should return 0.34.0
+- nvm install node
+- nvm install 10.16.3
+
+***NodeJS Mysql Installation***
+- npm install mysql
+- npm install websocket (in the working directory)
+- nm init -y (in the working directory)
+This project is built on the project-1. The Tornado webscket code is added into the main application code but it is executed onto the different thread. Hence, it runs independently. 
 
 ## Project Work
 
+**Project-2 Additions over Project-1**
+
+HTML Webpage was created as user interface which communicates with the NodeJS Server and Tornado WebServer. Following Functionalities were incorporated: 
+- 
+
+
+**Project-1**
 The GUI consists of pushbuttons with the following functionalities:
 - Status Box: All the display messages are displayed in the status box according to the button pressed in the GUI.
 - Refresh: This button would fetch immediate temperature and humidity values from the DHT22 sensor and display it in the Status box of the GUI without updating the database.
@@ -44,7 +63,27 @@ The GUI consists of pushbuttons with the following functionalities:
 -> Siddhant Jajoo - Pyqt5 work and Integration  
 -> Satya Mehta - Mysql, Matplotlib and Integration. 
 
-## Project Additions
+## Project2 Additions
+Project 2 Additons - 1) HTML CLient website 2) NodeJs Server 3) Tornado Server.
+- Find the AWS development account in the folder.
+- The HTML page establishes WebSocket communications woth both the Tornado Webserver and NodeJS Webserver.
+- CSS has been used to refine the HTML webpage.
+- NodeJs and Tornado act as the Webserver to store timestamp, temperature and humidity data.
+
+1) HTML CLient Website
+- Refresh Button: This pushbutton fetches the latest temperature and Humidity values along with the timestamp fom the tornado web server which has been integrated with the python application and PyQt5 GUI developed during Project 1. If it fails to acquire the current values or the DHT22 does not respond, an error is returned to the HTML page for diplay.
+- Fetch Database: This pushbutton fetches the latest temperature and humidity values along with the timestamp that has been stored in the mysql webserver.
+- Radio Button: There are two radio buttons -> Celsius and Fahrenheit which converts the temperature unit to the appropriate temperature unit selected in the entire webpage.
+- Test Network: This pushbutton fetches the last 10 Temperature and Humidity values along with timestamp from the Tornado webserver and NodeJs server. It also notes the start, stop and execution time to fetch all the data and displays it on the HTML website.
+- Temperature Graph: This pushbutton fetches the last 10 temeperature values from the Tornado Webserver and creates a graph. 
+- Humidity Graph: This pushbutton fetches the last 10 humidity values from the Tornado Webserver and creates a graph.
+
+
+-> Siddhant Jajoo - Node JS Web Socket, Integration  
+-> Satya Mehta - Tornado Web Socket, Integration
+-> Vatsal Sheth - Html webpage, Integration
+
+## Project1 Additions
 - Conversion from Celsius to Fahrenheit and vice versa by clicking on the respective radio button.
 - Displaying Alarm text message as soon as the threshold is changed in addition to checking every 15 seconds and also at pressing      refresh button on the GUI.  
 
@@ -52,3 +91,8 @@ The GUI consists of pushbuttons with the following functionalities:
 ## References
 - https://github.com/adafruit/DHT-sensor-library - Adafruit library for DHT22 sensor.
 - https://pimylifeup.com/raspberry-pi-humidity-sensor-dht22/ - Adafruit Sensor Installation
+- https://www.w3schools.com/nodejs/nodejs_mysql.asp - Node.js talking to MySQL
+- https://www.pubnub.com/blog/nodejs-websocket-programming-examples/ - Node.js WebServer example
+- https://os.mbed.com/cookbook/Websockets-Server - Python-Tornado-HTML example
+- http://www.tornadoweb.org/en/stable/
+- https://wiki.python.org/moin/WebServers - Many other choices, many levels of complexity:
