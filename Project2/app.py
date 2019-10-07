@@ -207,11 +207,19 @@ class gui_functionality(Ui_MainWindow):
         self.radioButton_fahrenheit.pressed.connect(self.celsius_to_fahrenheit)
 
 class WSHandler(tornado.websocket.WebSocketHandler):
+	"""
+	Tornado WebSocketHandler.
+	"""
     def open(self):
-        print ('new connection')
+		"""
+		open : This function is called when there is a new connection.
+		"""
+        print ('New Connection')
         
     def on_message(self, message):
-        print ('message received:  %s' % message)
+		"""
+		on_message: This function is called when a new message is received at the websocket. 
+		"""
         temperature, humidity = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
         temp_dict = dict()
         final_list = list()
@@ -262,6 +270,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             pass
 
     def on_close(self):
+		"""
+		on_close: This function is called when the websocket connection is disconnected or closed
+		"""
         print ('connection closed')
 
     def check_origin(self, origin):
@@ -274,6 +285,9 @@ application = tornado.web.Application([
     ])
 
 def tornado_thread():
+	"""
+	Tornado Thread function which runs independently on different thread
+	"""
     asyncio.set_event_loop(asyncio.new_event_loop())
     print("Inside tornado thread")
     http_server = tornado.httpserver.HTTPServer(application)
