@@ -1,8 +1,8 @@
-# EID-Project-2
+# EID-Project-3
   
 This project was completed under the course Embedded Interface Design at University of Colorado, Boulder under the guidance of Professor Bruce Montgomery in September 2019.
   
-## Authors: Siddhant Jajoo, Satya Mehta, Vatsal Sheth  
+## Authors: Siddhant Jajoo, Satya Mehta  
 
 ## Installation Instructions 
  Run below commands to install all the libraries and dependancies to required for this project. 
@@ -42,15 +42,13 @@ This project was completed under the course Embedded Interface Design at Univers
 - nm init -y (in the working directory)
 This project is built on the project-1. The Tornado webscket code is added into the main application code but it is executed onto the different thread. Hence, it runs independently. 
 
+***AWS Python SDK Intsallation***
+- sudo pip install AWSIoTPythonSDK
+
+***AWS Account is required for this project and should have services like IoT Core, SQS, SNS enabled and authorized.***
 ## Project Work
 
-**Project-2 Additions over Project-1**
-
-HTML Webpage was created as user interface which communicates with the NodeJS Server and Tornado WebServer. Following Functionalities were incorporated: 
-- 
-
-
-**Project-1**
+## Project-1
 The GUI consists of pushbuttons with the following functionalities:
 - Status Box: All the display messages are displayed in the status box according to the button pressed in the GUI.
 - Refresh: This button would fetch immediate temperature and humidity values from the DHT22 sensor and display it in the Status box of the GUI without updating the database.
@@ -83,6 +81,21 @@ Project 2 Additons - 1) HTML CLient website 2) NodeJs Server 3) Tornado Server.
 -> Satya Mehta - Tornado Web Socket, Integration
 -> Vatsal Sheth - Html webpage, Integration
 
+## Project3 Additions. 
+- Data push handler which is initialized as MQTT client and it sends messages to AWS server using AWSIoTPython SDK. 
+- The JSON string include keys like Alert, Temperature, Temperature Alert level, Temperature alert trigger, humidity, humidity alert     level, humidity alert trigger.
+- The AWS account should be created and should have services enabled. 
+- In this project we require IoT Core, SQS, SNS, Lambda services enabled.
+- The Lambda function created is linked with IoT core under AWS settings and hence whenever there are new MQTT messages the Lambda     function is invoked.
+- The lambda function is used to parse the data from the MQTT message. (JSON string). 
+- If the message is an alert type than the SNS is used to send a sms which includes all information to a phone number. 
+
+
+->Satya Mehta - AWS IoT Initialization, SNS, Lambda Function, Data push handler.
+->Siddhant Jajoo - AWS Lambda modifcations, HTML Web page, AWs SQS
+
+
+
 ## Project1 Additions
 - Conversion from Celsius to Fahrenheit and vice versa by clicking on the respective radio button.
 - Displaying Alarm text message as soon as the threshold is changed in addition to checking every 15 seconds and also at pressing      refresh button on the GUI.  
@@ -95,4 +108,8 @@ Project 2 Additons - 1) HTML CLient website 2) NodeJs Server 3) Tornado Server.
 - https://www.pubnub.com/blog/nodejs-websocket-programming-examples/ - Node.js WebServer example
 - https://os.mbed.com/cookbook/Websockets-Server - Python-Tornado-HTML example
 - http://www.tornadoweb.org/en/stable/
-- https://wiki.python.org/moin/WebServers - Many other choices, many levels of complexity:
+- https://wiki.python.org/moin/WebServers - Many other choices, many levels of complexity
+- https://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html - AWS IoT Initialization.
+- https://techblog.calvinboey.com/raspberrypi-aws-iot-python/ - Raspberry Pi AWS IoT SDK example
+- https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html - SQS with HTTP Get, Set Request
+- https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html - Using Lambda with SNS
