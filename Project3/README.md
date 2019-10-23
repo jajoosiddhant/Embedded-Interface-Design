@@ -58,6 +58,10 @@ The GUI consists of pushbuttons with the following functionalities:
 - Double Spin Box for Temperature and Humidity: These spin boxes are used as an input box for threshold values of Temperature and Humidity to display an alarm message if the temperature and humidity values cross their thresholds respectively. The threshold values are modified automatically if the radio button status is changed from Celsius to Fahrenheit and vice versa. The threshold calculation is done instantaneously as the values are changed and the alarm message is displayed in the Status Box.
 - Timer: A timer has been implemented which would fetch tempertaure and humidity values from the DHT22 sensor, check threshold values for alarm display and update the values in the database every 15 seconds.
 
+## Project1 Additions
+- Conversion from Celsius to Fahrenheit and vice versa by clicking on the respective radio button.
+- Displaying Alarm text message as soon as the threshold is changed in addition to checking every 15 seconds and also at pressing      refresh button on the GUI.  
+
 -> Siddhant Jajoo - Pyqt5 work and Integration  
 -> Satya Mehta - Mysql, Matplotlib and Integration. 
 
@@ -90,15 +94,23 @@ Project 2 Additons - 1) HTML CLient website 2) NodeJs Server 3) Tornado Server.
 - The lambda function is used to parse the data from the MQTT message. (JSON string). 
 - If the message is an alert type than the SNS is used to send a sms which includes all information to a phone number. 
 
+### HTML CLient Website
+- The client website has additional three buttons which are used to fetch data from AWS SQS queue.
+- SQS-Single: This pushbutton fetches the latest data from the AWS queue and deletes the data from queue as well and displays it in the form of a table with contents timestamp, temperature (Celsius or Fahrenheit) and humidity values.  
+- SQS-All: This pushbutton fetches 20 latest data from the AWS queue and deletes the entire data available in the queue as well and displays the 20 latest values in the form of a table with contents timestamp, temperature (Celsius or Fahrenheit) and humidity values.
+- SQS-Count:  This pushbutton retrieves the current Message count in the AWS queue and displays it in a text box in the status window. The count is also updated in the textbox on pressing the SQS-Client and SQS-All push buttons.
 
-->Satya Mehta - AWS IoT Initialization, SNS, Lambda Function, Data push handler.
+
+### Project Issues Faced
+- Implementing the settings required for AWS account.
+- Creating the table to fetch latest 20 values and not the old 20 values.  
+  
+  
+
+->Satya Mehta - AWS IoT Initialization, SNS, Lambda Function, Data push handler.  
 ->Siddhant Jajoo - AWS Lambda modifcations, HTML Web page, AWs SQS
 
 
-
-## Project1 Additions
-- Conversion from Celsius to Fahrenheit and vice versa by clicking on the respective radio button.
-- Displaying Alarm text message as soon as the threshold is changed in addition to checking every 15 seconds and also at pressing      refresh button on the GUI.  
 
 
 ## References
