@@ -207,13 +207,10 @@ class gui_functionality(Ui_MainWindow):
         self.radioButton_fahrenheit.pressed.connect(self.celsius_to_fahrenheit)
 
 class WSHandler(tornado.websocket.WebSocketHandler):
-	"""
-	Tornado WebSocketHandler.
-	"""
     def open(self):
-		"""
-		open : This function is called when there is a new connection.
-		"""
+        """
+        open : This function is called when there is a new connection.
+        """
         print ('New Connection')
         
     def on_message(self, message):
