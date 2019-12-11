@@ -1,11 +1,11 @@
 # EID-Project-6 - MAGIC WAND
   
-This project was completed under the course Embedded Interface Design at University of Colorado, Boulder under the guidance of Professor Bruce Montgomery in September 2019.
+This project was completed under the course Embedded Interface Design at University of Colorado, Boulder under the guidance of Professor Bruce Montgomery in November - December 2019.
   
 ## Authors: Siddhant Jajoo, Satya Mehta, Vatsal Sheth  
 
 ## Installation Instructions 
- Run below commands to install all the libraries and dependancies to required for this project. 
+ Run below commands to install all the libraries and dependencies to required for this project. 
     
 ***Python Installation***
 - sudo apt-get update
@@ -40,18 +40,24 @@ This project was completed under the course Embedded Interface Design at Univers
 - npm install mysql
 - npm install websocket (in the working directory)
 - nm init -y (in the working directory)  
-  
-  
 
 ***AWS Python SDK Intsallation***
 - sudo pip install AWSIoTPythonSDK
 
+
 ***AWS Account is required for this project and should have services like IoT Core, SQS, SNS enabled and authorized.***
 
+## Instructions to Run
+
+
 ## Project Work
+The project consists of a microphone, a speaker, a camera and various amazaon services such as Simple Queue Service (SQS), Simple Storage Service (S3) Bucket, LEX, AWS Poly and AWS Image Rekognition. The camera takes a picture on speaking a command such as identify and then sends the image to AWS which performs a couple of AWS services, recognizes the image and then sends the image and a label to the user and converts the label to speech and uses the speaker as well. The user needs to feedback if the image has been detected accurately or not by using the keywords such as right and wrong.
+The feedback data is then sent to the client to keep statistics with the latest image taken in Mysql database.
 
 
-### Project Issues Faced
+## Coding Languages used
+- Nodejs
+- Python
 
   
 ->Satya Mehta -   
